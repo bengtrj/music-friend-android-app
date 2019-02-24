@@ -26,7 +26,8 @@ class ListPresenter: ListContract.Presenter {
     }
 
     override fun loadData() {
-        val subscribe = api.getAlbumListByArtist("satriani").subscribeOn(Schedulers.io())
+        val subscribe = api.getAlbumListByArtist("satriani")
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result: AlbumsQueryResult ? ->
                     //TODO handle empty / null list
