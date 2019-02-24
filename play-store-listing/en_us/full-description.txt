@@ -1,0 +1,7 @@
+Welcome to Music Friend!
+
+This is an example app to try and iterate on using and mastering the Play Publish API v3.
+
+Currently just listing Satriani albums using the iTunes API.
+
+This app was written by Bengt Hammarlund and it\'s code it\'s available at github.

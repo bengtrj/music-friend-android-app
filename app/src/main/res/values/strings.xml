@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Musical Friend</string>
+
+    <!-- Fragment tags -->
+    <string name="fragment_about_tag">About me</string>
+    <string name="fragment_list_tag">List Albums</string>
+
+    <string name="info">Info</string>
+    <string name="album_image_content_description">Album image</string>
+
+    <!-- Not implemented features -->
+    <string name="not_implemented">Hey! I didn\'t implement this yet</string>
+    <string name="info_about_app">"
+Welcome to Music Friend!
+Hopefully you\'re not bored yet.
+
+Yeah, the list is currently just listing Satriani albums using the iTunes API.
+It does not play music and you can\'t download to listen offline or create playlists.
+
+But hey, at least it does not crash (does it?) :D
+
+This app was written by Bengt Hammarlund and it\'s code it\'s available at github."
+    </string>
+
+</resources>
