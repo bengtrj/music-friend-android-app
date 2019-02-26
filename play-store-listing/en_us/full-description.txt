@@ -4,4 +4,4 @@ This is an example app to try and iterate on using and mastering the Play Publis
 
 Currently just listing Satriani albums using the iTunes API.
 
-This app was written by Bengt Hammarlund and it\'s code it\'s available at github.
+This app was written by Bengt Hammarlund and its code is available at github.
