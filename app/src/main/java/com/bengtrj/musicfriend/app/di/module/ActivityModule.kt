@@ -1,7 +1,7 @@
 package com.bengtrj.musicfriend.app.di.module
 
 import android.app.Activity
-import com.bengtrj.musicfriend.app.ui.main.MainContract
+import com.bengtrj.musicfriend.app.ui.main.Contract
 import com.bengtrj.musicfriend.app.ui.main.MainPresenter
 import dagger.Module
 import dagger.Provides
@@ -15,7 +15,7 @@ class ActivityModule(private var activity: Activity) {
     }
 
     @Provides
-    fun providePresenter(): MainContract.Presenter {
+    fun providePresenter(): Contract.Presenter {
         return MainPresenter()
     }
 

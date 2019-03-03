@@ -11,9 +11,9 @@ import com.bengtrj.musicfriend.app.ui.appinfo.AppInfoFragment
 import com.bengtrj.musicfriend.app.ui.list.ListFragment
 import javax.inject.Inject
 
-class MainActivity: AppCompatActivity(), MainContract.View {
+class MainActivity: AppCompatActivity(), Contract.View {
 
-    @Inject lateinit var presenter: MainContract.Presenter
+    @Inject lateinit var presenter: Contract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

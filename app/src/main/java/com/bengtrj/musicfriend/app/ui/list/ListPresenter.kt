@@ -13,11 +13,7 @@ class ListPresenter: ListContract.Presenter {
     private val api: ApiServiceInterface = ApiServiceInterface.create()
     private lateinit var view: ListContract.View
 
-    override fun subscribe() {
-
-    }
-
-    override fun unsubscribe() {
+    override fun detach() {
         subscriptions.clear()
     }
 

@@ -38,13 +38,12 @@ class ListFragment: androidx.fragment.app.Fragment(), ListContract.View, ListAda
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.attach(this)
-        presenter.subscribe()
         initView()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        presenter.unsubscribe()
+        presenter.detach()
     }
 
     override fun showProgress(show: Boolean) {
