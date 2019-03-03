@@ -1,4 +1,4 @@
-package com.bengtrj.musicfriend.app.di.module
+package com.bengtrj.musicfriend.app.di.listAlbums
 
 import android.app.Activity
 import com.bengtrj.musicfriend.app.ui.main.Contract

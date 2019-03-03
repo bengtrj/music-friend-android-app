@@ -1,8 +1,8 @@
 package com.bengtrj.musicfriend.app
 
 import android.app.Application
-import com.bengtrj.musicfriend.app.di.component.ApplicationComponent
-import com.bengtrj.musicfriend.app.di.component.DaggerApplicationComponent
+import com.bengtrj.musicfriend.app.di.application.ApplicationComponent
+import com.bengtrj.musicfriend.app.di.application.DaggerApplicationComponent
 
 class BaseApp: Application() {
 

@@ -1,12 +1,12 @@
 package com.bengtrj.musicfriend.app.ui.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.bengtrj.musicfriend.app.R
-import com.bengtrj.musicfriend.app.di.component.DaggerActivityComponent
-import com.bengtrj.musicfriend.app.di.module.ActivityModule
+import com.bengtrj.musicfriend.app.di.listAlbums.ActivityModule
+import com.bengtrj.musicfriend.app.di.listAlbums.DaggerActivityComponent
 import com.bengtrj.musicfriend.app.ui.appinfo.AppInfoFragment
 import com.bengtrj.musicfriend.app.ui.list.ListFragment
 import javax.inject.Inject

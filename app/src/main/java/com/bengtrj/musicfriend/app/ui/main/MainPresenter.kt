@@ -5,16 +5,14 @@ import io.reactivex.disposables.CompositeDisposable
 
 class MainPresenter: Contract.Presenter {
 
-    private val subscriptions = CompositeDisposable()
     private lateinit var view: View
 
     override fun detach() {
-        subscriptions.clear()
     }
 
     override fun attach(view: View) {
         this.view = view
-        view.showListFragment() // as default
+        view.showListFragment()
     }
 
     override fun onDrawerOptionAboutClick() {

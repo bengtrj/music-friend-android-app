@@ -1,6 +1,6 @@
 package com.bengtrj.musicfriend.app.ui.main
 
-import com.bengtrj.musicfriend.app.ui.base.BaseContract
+import com.bengtrj.musicfriend.app.ui.BaseContract
 
 class Contract {
 

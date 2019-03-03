@@ -1,6 +1,5 @@
-package com.bengtrj.musicfriend.app.di.component
+package com.bengtrj.musicfriend.app.di.listAlbums
 
-import com.bengtrj.musicfriend.app.di.module.ActivityModule
 import com.bengtrj.musicfriend.app.ui.main.MainActivity
 import dagger.Component
 

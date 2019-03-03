@@ -1,7 +1,6 @@
-package com.bengtrj.musicfriend.app.di.component
+package com.bengtrj.musicfriend.app.di.application
 
 import com.bengtrj.musicfriend.app.BaseApp
-import com.bengtrj.musicfriend.app.di.module.ApplicationModule
 import dagger.Component
 
 @Component(modules = [ApplicationModule::class])

@@ -1,31 +1,41 @@
 package com.bengtrj.musicfriend.app.ui.list
 
 import com.bengtrj.musicfriend.app.api.ApiServiceInterface
-import com.bengtrj.musicfriend.app.models.Album
+import com.bengtrj.musicfriend.app.di.listAlbums.DaggerPresenterComponent
+import com.bengtrj.musicfriend.app.di.listAlbums.PresenterModule
 import com.bengtrj.musicfriend.app.models.AlbumsQueryResult
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class ListPresenter: ListContract.Presenter {
+class Presenter : Contract.Presenter {
 
-    private val subscriptions = CompositeDisposable()
-    private val api: ApiServiceInterface = ApiServiceInterface.create()
-    private lateinit var view: ListContract.View
+    @Inject
+    lateinit var subscriptions: CompositeDisposable
+
+    @Inject
+    lateinit var apiService: ApiServiceInterface
+
+    private lateinit var view: Contract.View
+
+    init {
+        injectDependency()
+    }
 
     override fun detach() {
         subscriptions.clear()
     }
 
-    override fun attach(view: ListContract.View) {
+    override fun attach(view: Contract.View) {
         this.view = view
     }
 
     override fun loadData() {
-        val subscribe = api.getAlbumListByArtist("satriani")
+        val subscribe = apiService.getAlbumListByArtist("satriani")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ result: AlbumsQueryResult ? ->
+                .subscribe({ result: AlbumsQueryResult? ->
                     //TODO handle empty / null list
                     view.showProgress(false)
                     view.loadDataSuccess(result!!.albums)
@@ -38,6 +48,13 @@ class ListPresenter: ListContract.Presenter {
     }
 
     override fun deleteItem(item: AlbumsQueryResult) {
-        //api.deleteUser(item.id)
+        //apiService.deleteUser(item.id)
     }
+
+    private fun injectDependency() {
+        val presenterComponent = DaggerPresenterComponent.builder()
+                .presenterModule(PresenterModule()).build()
+        presenterComponent.inject(this)
+    }
+
 }

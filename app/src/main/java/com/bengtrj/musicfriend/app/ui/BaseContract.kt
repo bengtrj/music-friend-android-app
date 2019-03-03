@@ -1,4 +1,4 @@
-package com.bengtrj.musicfriend.app.ui.base
+package com.bengtrj.musicfriend.app.ui
 
 class BaseContract {
 

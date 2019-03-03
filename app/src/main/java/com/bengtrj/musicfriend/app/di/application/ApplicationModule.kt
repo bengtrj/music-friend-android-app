@@ -1,8 +1,7 @@
-package com.bengtrj.musicfriend.app.di.module
+package com.bengtrj.musicfriend.app.di.application
 
 import android.app.Application
 import com.bengtrj.musicfriend.app.BaseApp
-import com.bengtrj.musicfriend.app.di.scope.ApplicationScope
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

@@ -1,4 +1,4 @@
-package com.bengtrj.musicfriend.app.di.scope
+package com.bengtrj.musicfriend.app.di.application
 
 import javax.inject.Qualifier
 

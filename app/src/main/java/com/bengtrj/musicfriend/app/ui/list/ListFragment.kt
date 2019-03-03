@@ -1,23 +1,22 @@
 package com.bengtrj.musicfriend.app.ui.list
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bengtrj.musicfriend.app.R
-import com.bengtrj.musicfriend.app.di.component.DaggerFragmentComponent
-import com.bengtrj.musicfriend.app.di.module.FragmentModule
+import com.bengtrj.musicfriend.app.di.listAlbums.DaggerFragmentComponent
+import com.bengtrj.musicfriend.app.di.listAlbums.FragmentModule
 import com.bengtrj.musicfriend.app.models.Album
-import com.bengtrj.musicfriend.app.models.DetailsViewModel
 import com.bengtrj.musicfriend.app.models.AlbumsQueryResult
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 
-class ListFragment: androidx.fragment.app.Fragment(), ListContract.View, ListAdapter.OnItemClickListener {
+class ListFragment: androidx.fragment.app.Fragment(), Contract.View, ListAdapter.OnItemClickListener {
 
-    @Inject lateinit var presenter: ListContract.Presenter
+    @Inject lateinit var presenter: Contract.Presenter
 
     private lateinit var rootView: View
 
@@ -67,10 +66,6 @@ class ListFragment: androidx.fragment.app.Fragment(), ListContract.View, ListAda
                 setAdapter(adapter)
             }
         }
-    }
-
-    override fun loadDataAllSuccess(model: DetailsViewModel) {
-        print(model.asJson())
     }
 
     override fun itemRemoveClick(post: AlbumsQueryResult) {
