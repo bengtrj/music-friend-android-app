@@ -1,6 +1,7 @@
 package com.bengtrj.musicfriend.app
 
 import android.app.Application
+import android.content.res.Resources
 import com.bengtrj.musicfriend.app.di.application.ApplicationComponent
 import com.bengtrj.musicfriend.app.di.application.DaggerApplicationComponent
 
@@ -12,6 +13,7 @@ class BaseApp: Application() {
         super.onCreate()
 
         instance = this
+        appResources = instance.getResources()
         setup()
 
         if (BuildConfig.DEBUG) {
@@ -24,11 +26,8 @@ class BaseApp: Application() {
         component.inject(this)
     }
 
-    fun getApplicationComponent(): ApplicationComponent {
-        return component
-    }
-
     companion object {
         lateinit var instance: BaseApp private set
+        lateinit var appResources: Resources
     }
 }

@@ -5,15 +5,15 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.bengtrj.musicfriend.app.R
-import com.bengtrj.musicfriend.app.di.listAlbums.ActivityModule
-import com.bengtrj.musicfriend.app.di.listAlbums.DaggerActivityComponent
+import com.bengtrj.musicfriend.app.di.listAlbums.DaggerListAlbumsActivityComponent
+import com.bengtrj.musicfriend.app.di.listAlbums.ListAlbumsActivityModule
 import com.bengtrj.musicfriend.app.ui.appinfo.AppInfoFragment
-import com.bengtrj.musicfriend.app.ui.list.ListFragment
+import com.bengtrj.musicfriend.app.ui.listAlbums.ListAlbumsFragment
 import javax.inject.Inject
 
-class MainActivity: AppCompatActivity(), Contract.View {
+class MainActivity: AppCompatActivity(), MainContract.View {
 
-    @Inject lateinit var presenter: Contract.Presenter
+    @Inject lateinit var presenter: MainContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,7 @@ class MainActivity: AppCompatActivity(), Contract.View {
     override fun showListFragment() {
         supportFragmentManager.beginTransaction()
                 .disallowAddToBackStack()
-                .replace(R.id.frame, ListFragment().newInstance(), ListFragment.TAG)
+                .replace(R.id.frame, ListAlbumsFragment().newInstance(), ListAlbumsFragment.TAG)
                 .commit()
     }
 
@@ -72,8 +72,8 @@ class MainActivity: AppCompatActivity(), Contract.View {
     }
 
     private fun injectDependency() {
-        val activityComponent = DaggerActivityComponent.builder()
-                .activityModule(ActivityModule(this))
+        val activityComponent = DaggerListAlbumsActivityComponent.builder()
+                .listAlbumsActivityModule(ListAlbumsActivityModule())
                 .build()
 
         activityComponent.inject(this)

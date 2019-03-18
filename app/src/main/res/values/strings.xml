@@ -7,6 +7,7 @@
 
     <string name="info">Info</string>
     <string name="album_image_content_description">Album image</string>
+    <string name="album_load_error">Error while loading album data</string>
 
     <!-- Not implemented features -->
     <string name="not_implemented">Hey! I didn\'t implement this yet</string>

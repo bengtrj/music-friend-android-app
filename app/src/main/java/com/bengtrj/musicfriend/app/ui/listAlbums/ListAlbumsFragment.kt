@@ -1,4 +1,4 @@
-package com.bengtrj.musicfriend.app.ui.list
+package com.bengtrj.musicfriend.app.ui.listAlbums
 
 import android.os.Bundle
 import android.util.Log
@@ -6,22 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bengtrj.musicfriend.app.R
-import com.bengtrj.musicfriend.app.di.listAlbums.DaggerFragmentComponent
-import com.bengtrj.musicfriend.app.di.listAlbums.FragmentModule
+import com.bengtrj.musicfriend.app.di.listAlbums.DaggerListAlbumsFragmentComponent
+import com.bengtrj.musicfriend.app.di.listAlbums.ListAlbumsFragmentModule
 import com.bengtrj.musicfriend.app.models.Album
 import com.bengtrj.musicfriend.app.models.AlbumsQueryResult
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 
-class ListFragment: androidx.fragment.app.Fragment(), Contract.View, ListAdapter.OnItemClickListener {
+class ListAlbumsFragment: androidx.fragment.app.Fragment(), ListAlbumsContract.View, ListAlbumsAdapter.OnItemClickListener {
 
-    @Inject lateinit var presenter: Contract.Presenter
+    @Inject lateinit var presenter: ListAlbumsContract.Presenter
 
     private lateinit var rootView: View
 
-    fun newInstance(): ListFragment {
-        return ListFragment()
+    fun newInstance(): ListAlbumsFragment {
+        return ListAlbumsFragment()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ class ListFragment: androidx.fragment.app.Fragment(), Contract.View, ListAdapter
 
     override fun loadDataSuccess(list: List<Album>) {
         activity?.let {
-            val adapter = ListAdapter(it, list.toMutableList(), this)
+            val adapter = ListAlbumsAdapter(it, list.toMutableList(), this)
             recyclerView!!.run {
                 layoutManager = androidx.recyclerview.widget.LinearLayoutManager(it)
                 setAdapter(adapter)
@@ -77,8 +77,8 @@ class ListFragment: androidx.fragment.app.Fragment(), Contract.View, ListAdapter
     }
 
     private fun injectDependency() {
-        val listComponent = DaggerFragmentComponent.builder()
-                .fragmentModule(FragmentModule())
+        val listComponent = DaggerListAlbumsFragmentComponent.builder()
+                .listAlbumsFragmentModule(ListAlbumsFragmentModule())
                 .build()
 
         listComponent.inject(this)
@@ -89,6 +89,6 @@ class ListFragment: androidx.fragment.app.Fragment(), Contract.View, ListAdapter
     }
 
     companion object {
-        const val TAG: String = "ListFragment"
+        const val TAG: String = "ListAlbumsFragment"
     }
 }

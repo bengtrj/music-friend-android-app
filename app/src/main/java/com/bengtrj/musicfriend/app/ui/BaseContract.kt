@@ -3,7 +3,9 @@ package com.bengtrj.musicfriend.app.ui
 class BaseContract {
 
     interface Presenter<in T> {
-        fun detach()
+        fun detach() {
+
+        }
         fun attach(view: T)
     }
 

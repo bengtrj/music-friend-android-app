@@ -1,8 +1,6 @@
-package com.bengtrj.musicfriend.app.ui.list
+package com.bengtrj.musicfriend.app.ui.listAlbums
 
 import android.content.Context
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +11,13 @@ import com.bengtrj.musicfriend.app.models.Album
 import com.bengtrj.musicfriend.app.models.AlbumsQueryResult
 import com.squareup.picasso.Picasso
 
-class ListAdapter(private val context: Context, private val list: MutableList<Album>,
-                  fragment: androidx.fragment.app.Fragment) : androidx.recyclerview.widget.RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
+class ListAlbumsAdapter(private val context: Context, private val list: MutableList<Album>,
+                        fragment: androidx.fragment.app.Fragment) : androidx.recyclerview.widget.RecyclerView.Adapter<ListAlbumsAdapter.ListViewHolder>() {
 
-    private val listener: ListAdapter.OnItemClickListener
+    private val listener: ListAlbumsAdapter.OnItemClickListener
 
     init {
-        this.listener = fragment as ListAdapter.OnItemClickListener
+        this.listener = fragment as ListAlbumsAdapter.OnItemClickListener
     }
 
     override fun getItemCount(): Int {
@@ -30,14 +28,14 @@ class ListAdapter(private val context: Context, private val list: MutableList<Al
         val itemView = LayoutInflater.from(context)
                 .inflate(R.layout.album_item_layout, parent, false)
 
-        return ListAdapter.ListViewHolder(itemView, listener)
+        return ListAlbumsAdapter.ListViewHolder(itemView, listener)
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.onBind(list[position])
     }
 
-    class ListViewHolder(itemView: View, private val listener: ListAdapter.OnItemClickListener)
+    class ListViewHolder(itemView: View, private val listener: ListAlbumsAdapter.OnItemClickListener)
         : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         private val layout = itemView.findViewById(R.id.album_item_layout) as View
         private val title = itemView.findViewById(R.id.album_artist_name) as TextView

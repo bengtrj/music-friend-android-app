@@ -1,10 +1,10 @@
-package com.bengtrj.musicfriend.app.ui.list
+package com.bengtrj.musicfriend.app.ui.listAlbums
 
 import com.bengtrj.musicfriend.app.models.Album
 import com.bengtrj.musicfriend.app.ui.BaseContract
 import com.bengtrj.musicfriend.app.models.AlbumsQueryResult
 
-class Contract {
+class ListAlbumsContract {
 
     interface View: BaseContract.View {
         fun showProgress(show: Boolean)

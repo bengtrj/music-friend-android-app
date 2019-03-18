@@ -45,6 +45,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$support_version"
+    implementation "android.arch.work:work-runtime-ktx:$work_version"
 
     // retrofit + gson
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -53,6 +54,7 @@ dependencies {
 
     // rx
     implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
 
     // dependency injection
@@ -73,6 +75,12 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
+    testImplementation 'org.mockito:mockito-core:2.23.0'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
+    testImplementation 'org.hamcrest:hamcrest:2.1'
+    testImplementation 'com.github.fabioCollini.daggermock:daggermock:0.8.4'
+    testImplementation 'com.github.fabioCollini.daggermock:daggermock-kotlin:0.8.4'
+    androidTestImplementation 'com.github.fabioCollini.daggermock:daggermock-kotlin:0.8.4'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
 }
