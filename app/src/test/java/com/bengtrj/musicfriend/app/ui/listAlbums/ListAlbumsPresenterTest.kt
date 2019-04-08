@@ -45,14 +45,14 @@ class ListAlbumsPresenterTest {
     }
 
     @Test
-    fun `when attached and not , does not have subscriptions`() {
+    fun `when just attached, does not have subscriptions`() {
         presenter.attach(view)
         verifyZeroInteractions(subscriptions)
     }
 
 
     @Test
-    fun `when detached, subscriptions cleared`() {
+    fun `when detached, subscriptions are cleared`() {
         presenter.detach()
         verify(subscriptions).clear()
         verifyNoMoreInteractions(subscriptions)

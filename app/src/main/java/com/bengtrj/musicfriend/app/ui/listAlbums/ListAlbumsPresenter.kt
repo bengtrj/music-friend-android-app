@@ -61,7 +61,7 @@ class ListAlbumsPresenter : ListAlbumsContract.Presenter {
                         onComplete = {
                             view.showProgress(false)
                         },
-                        onError = { error: Throwable ->
+                        onError = { _ ->
                             view.showErrorMessage(resources.getString(R.string.album_load_error))
                         }
                 )
